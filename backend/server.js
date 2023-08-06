@@ -5,10 +5,15 @@ const express = require('express')
 
 const router = require('./routes/cats')
 
+const cors = require('cors')
+
 const app = express()
 
 // to be able to use json
 app.use(express.json())
+
+// to be able to use cross origin requests
+app.use(cors())
 
 // get info about the incoming requests
 app.use((req,res,next) => {

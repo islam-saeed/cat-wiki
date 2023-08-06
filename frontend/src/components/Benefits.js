@@ -11,9 +11,9 @@ const Benefits = () => {
                 <h3>READ MORE</h3>
             </div>
             <div>
-                <img src={image1} alt="cat image" />
-                <img src={image2} alt="cat image" />
-                <img src={image3} alt="cat image" />
+                <img src={image1} alt="cat" />
+                <img src={image2} alt="cat" />
+                <img src={image3} alt="cat" />
             </div>
         </div>
     )

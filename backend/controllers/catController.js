@@ -47,8 +47,28 @@ const getImages = async (req, res) => {
     }
 }
 
+// fetch a single image
+const getImage = async (req, res) => {
+    const id = req.params.id
+    try{
+        const options = {
+            method : 'GET',
+            headers : {
+                'Content-Type' : 'application/json',
+                'api_key' : process.env.API_KEY
+            }
+        }
+        const response = await fetch(`https://api.thecatapi.com/v1/images/search?format=json&limit=1&breed_ids=${id}`,options)
+        const data = await response.json()
+        res.status(200).json(data)
+    } catch (e) {
+        res.status(400).json({error: e.message})
+    }
+}
+
 module.exports = {
     getAllBreeds,
     getBreed,
-    getImages
+    getImages,
+    getImage
 }
