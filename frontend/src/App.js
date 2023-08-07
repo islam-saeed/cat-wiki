@@ -2,13 +2,17 @@ import logo from "./images/CatwikiLogo.svg"
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Cat from "./pages/Cat";
+import { Container } from 'react-bootstrap'
+import "bootstrap/dist/css/bootstrap.min.css"
 
 function App() {
   return (
     <div className="App">
-      <img src={logo} alt="logo" />
-      <Cat />
-      <Footer />
+      <Container>
+        <img src={logo} alt="logo" />
+        <Home />
+        <Footer />
+      </Container>
     </div>
   );
 }

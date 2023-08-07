@@ -1,0 +1,33 @@
+@import "./_variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Karla:wght@700&family=Montserrat:wght@500;600;700&display=swap');
+
+@mixin flexCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero{
+    background-size: cover;
+    height: $heroHeight;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    color: $heroTextColor;
+    font-weight: map-get($map: $font-weights, $key: regular);
+    font-size: 25px;
+
+
+    img{
+        filter: brightness(0) invert(1);
+        width: 400px;
+        height: 100px;
+    }
+
+    .hero-data{
+        @include flexCenter();
+        flex-direction: column;
+        height: $heroHeight;
+    }
+
+
+}

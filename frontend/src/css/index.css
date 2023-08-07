@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Karla:wght@700&family=Montserrat:wght@500;600;700&display=swap");
+.hero {
+  background-size: cover;
+  height: 500px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  color: #FFF;
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.hero img {
+  -webkit-filter: brightness(0) invert(1);
+          filter: brightness(0) invert(1);
+  width: 400px;
+  height: 100px;
+}
+
+.hero .hero-data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 500px;
+}
+/*# sourceMappingURL=index.css.map */
