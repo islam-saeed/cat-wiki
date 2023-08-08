@@ -7,6 +7,8 @@ const router = require('./routes/cats')
 
 const cors = require('cors')
 
+const mongoose = require('mongoose')
+
 const app = express()
 
 // to be able to use json
@@ -25,10 +27,7 @@ app.use((req,res,next) => {
 app.use('/breed',router)
 
 // listen for incoming requests
-try{
-    app.listen(process.env.PORT,() => {
+mongoose.connect(process.env.MONGO_URI)
+    .then(app.listen(process.env.PORT,() => {
         console.log(`listening on port : ${process.env.PORT}`)
-    })
-} catch(e) {
-    e => console.log(e.message)
-}
+    })).catch((e) => console.log(e.message))

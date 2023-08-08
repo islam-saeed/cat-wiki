@@ -9,8 +9,8 @@ function App() {
   return (
     <div className="App">
       <Container>
-        <img src={logo} alt="logo" />
-        <Home />
+        <img src={logo} alt="logo" style={{marginTop: "2vh"}} />
+        <Cat />
         <Footer />
       </Container>
     </div>

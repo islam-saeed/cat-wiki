@@ -1,4 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Karla:wght@700&family=Montserrat:wght@500;600;700&display=swap");
+* {
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 .hero {
   background-size: cover;
   height: 500px;
@@ -12,7 +18,7 @@
 .hero img {
   -webkit-filter: brightness(0) invert(1);
           filter: brightness(0) invert(1);
-  width: 400px;
+  width: 100%;
   height: 100px;
 }
 
@@ -31,5 +37,214 @@
       -ms-flex-direction: column;
           flex-direction: column;
   height: 500px;
+}
+
+.hero .search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  color: black;
+  margin-top: 1vh;
+}
+
+.hero input {
+  font-weight: 500;
+  font-size: 18px;
+  border-radius: 50px;
+  width: 320px;
+  padding: 10px 50px 10px 30px;
+}
+
+.hero .search-icon {
+  position: absolute;
+  right: 15px;
+  font-size: 18px;
+}
+
+.most-searched {
+  color: #291507;
+  background-color: #e3e1dc;
+  height: 500px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.most-searched .container {
+  padding: 5vh 5vw;
+}
+
+.most-searched .border {
+  width: 60px;
+  height: 5px;
+  border-radius: 8px;
+  background-color: #291507;
+  margin: 1vh 0 5vh 0;
+}
+
+.most-searched h4 {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.most-searched .row {
+  vertical-align: center;
+}
+
+.most-searched h1 {
+  font-weight: 700;
+  font-size: 48px;
+}
+
+.most-searched h3 {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.most-searched .see-more {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.benefits {
+  margin-top: 20vh;
+  color: #291507;
+}
+
+.benefits .border {
+  width: 60px;
+  height: 5px;
+  border-radius: 8px;
+  background-color: #291507;
+  margin-bottom: 5vh;
+}
+
+.benefits .text-container {
+  margin-top: 15vh;
+  padding: 0 50px;
+}
+
+.benefits .text-container * {
+  margin-bottom: 8vh;
+}
+
+.benefits .text-container h3 {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.benefits .text-container h3 svg {
+  margin: 0;
+}
+
+.benefits h1 {
+  font-weight: 700;
+  font-size: 48px;
+}
+
+.benefits .images-container {
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+.benefits .images-container .col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.benefits .images-container img {
+  margin: 5vh 0 1vh 0;
+}
+
+footer {
+  margin-top: 10vh;
+}
+
+footer .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: black;
+  color: white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 15px 30px;
+}
+
+footer .container p {
+  margin: 0;
+  margin-top: 10px;
+}
+
+footer .container img {
+  -webkit-filter: brightness(0) invert(1);
+          filter: brightness(0) invert(1);
+}
+
+.details {
+  color: #291507;
+  margin-top: 5vh;
+}
+
+.details .full {
+  width: 60px;
+  height: 5px;
+  border-radius: 8px;
+  background-color: #291507;
+  margin: auto 0.5vw;
+}
+
+.details .empty {
+  width: 60px;
+  height: 5px;
+  border-radius: 8px;
+  background-color: #e0e0e0;
+  margin: auto 0.5vw;
+}
+
+.details img {
+  width: 370px;
+  height: 370px;
+  border-radius: 24px;
+}
+
+.details .bold {
+  font-weight: 700;
+}
+
+.details .cat-pics {
+  margin-top: 5vh;
+}
+
+.details .cat-pics img {
+  width: 270px;
+  height: 270px;
+  margin-bottom: 5vh;
 }
 /*# sourceMappingURL=index.css.map */
