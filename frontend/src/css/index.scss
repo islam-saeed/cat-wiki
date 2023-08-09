@@ -10,6 +10,7 @@
 *{
     margin: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat','sans-serif';
 }
 
 .hero{
@@ -20,7 +21,7 @@
     color: $heroTextColor;
     font-weight: map-get($map: $font-weights, $key: regular);
     font-size: 25px;
-
+    position: relative;
 
     img{
         filter: brightness(0) invert(1);
@@ -38,7 +39,7 @@
         @include flexCenter();
         position: relative;
         color: black;
-        margin-top: 1vh;
+        margin-top: 10px;
     }
 
     input{
@@ -48,13 +49,38 @@
         width: 320px;
         padding: 10px 50px 10px 30px;
     }
-
+    
     .search-icon{
         position: absolute;
         right: 15px;
         font-size: 18px;
     }
+
+    .search-results{
+        width: 330px;
+        height: 200px;
+        border-radius: 25px;
+        background-color: white;
+        position: absolute;
+        top: 365px;
+        z-index: 99;
+        padding: 20px 0;
+        overflow-y: scroll;
+        &>div{
+            @include flexCenter()
+        }
+    }
+
+    .result{
+        text-decoration: none;
+        color: black;
+        width: 90%;
+        border-radius: 5px;
+        font-weight: map-get($map: $font-weights, $key: regular);
+        font-size: 18px;
+    }
 }
+
 
 .most-searched{
     color: $primaryTextColor;

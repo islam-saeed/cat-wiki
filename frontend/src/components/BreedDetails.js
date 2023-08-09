@@ -1,24 +1,22 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Col, Container, Row } from "react-bootstrap"
+import { useParams } from 'react-router-dom'
 import Percentages from './Percentages'
 
 
-const BreedDetails = ({id}) => {
-
+const BreedDetails = () => {
+    const params = useParams()
     const [ JSON, setJSON ] = new useState({})
-    const [ breedImage, setBreedImage ] = new useState({})
     const [ catImages, setCatImages ] = new useState({})
 
 
     const getData = async () => {
         try{
-            const response = await axios.get(`http://localhost:4000/breed/${id}`)
+            const response = await axios.get(`http://localhost:4000/breed/${params.id}`)
             setJSON(response.data)
-            const image = await axios.get(`http://localhost:4000/breed/image/${id}`)
-            setBreedImage(image.data[0].url)
-            const images = await axios.get(`http://localhost:4000/breed/images/${id}`)
-            setCatImages(images)
+            const images = await axios.get(`http://localhost:4000/breed/images/${params.id}`)
+            setCatImages(images.data)
         } catch (e){
             console.log(e.message)
         }
@@ -30,9 +28,8 @@ const BreedDetails = ({id}) => {
 
     useEffect(() => {
         console.log(JSON)
-        console.log(breedImage)
         console.log(catImages)
-    }, [JSON, breedImage, catImages]);
+    }, [JSON, catImages]);
 
 
     
@@ -42,7 +39,7 @@ const BreedDetails = ({id}) => {
             <Container>
                 <Row>
                     <Col>
-                        <img src={breedImage} alt="cat" />
+                        {catImages[0] && <img src={catImages[0].url} alt="cat" />}
                     </Col>
                     <Col>
                         <h1>{JSON.name}</h1>
@@ -61,25 +58,24 @@ const BreedDetails = ({id}) => {
                     </Col>
                 </Row>
                 <h1>Other photos</h1>
-                {catImages.data &&
                 <Row className='cat-pics'>
                     <Col>
-                        <img src={catImages.data[1].url} alt="cat" />
-                        <img src={catImages.data[2].url} alt="cat" />
+                        {catImages[1] && <img src={catImages[1].url} alt="cat" />}
+                        {catImages[2] && <img src={catImages[2].url} alt="cat" />}
                     </Col>
                     <Col>
-                        <img src={catImages.data[3].url} alt="cat" />
-                        <img src={catImages.data[4].url} alt="cat" />
+                        {catImages[3] && <img src={catImages[3].url} alt="cat" />}
+                        {catImages[4] && <img src={catImages[4].url} alt="cat" />}
                     </Col>
                     <Col>
-                        <img src={catImages.data[5].url} alt="cat" />
-                        <img src={catImages.data[6].url} alt="cat" />
+                        {catImages[5] && <img src={catImages[5].url} alt="cat" />}
+                        {catImages[6] && <img src={catImages[6].url} alt="cat" />}
                     </Col>
                     <Col>
-                        <img src={catImages.data[7].url} alt="cat" />
-                        <img src={catImages.data[8].url} alt="cat" />
+                        {catImages[7] && <img src={catImages[7].url} alt="cat" />}
+                        {catImages[8] && <img src={catImages[8].url} alt="cat" />}
                     </Col>
-                </Row>}
+                </Row>
             </Container>
         </div>
     )

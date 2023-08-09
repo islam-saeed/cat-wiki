@@ -1,4 +1,4 @@
-import { Col, Container, Row } from "react-bootstrap"
+import { Col, Row } from "react-bootstrap"
 
 const Percentages = ({name,perc}) => {
     return(
@@ -11,7 +11,7 @@ const Percentages = ({name,perc}) => {
                 <div className={perc >= 2 ? "full" : "empty"}></div>
                 <div className={perc >= 3 ? "full" : "empty"}></div>
                 <div className={perc >= 4 ? "full" : "empty"}></div>
-                <div className={perc == 5 ? "full" : "empty"}></div>
+                <div className={perc === 5 ? "full" : "empty"}></div>
             </Col>
         </Row>
     )
