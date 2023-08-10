@@ -1,6 +1,10 @@
 // to hide any sensitive data
 require('dotenv').config()
 
+const mongoose = require('mongoose')
+
+const catModel = require('../models/catSearch')
+
 // to use fetch for the external api
 const fetch = require('node-fetch')
 
@@ -66,9 +70,46 @@ const getImage = async (req, res) => {
     }
 }
 
+
+// add a search to the db
+const addSearch = async (req, res) => {
+    const id = req.params.id
+    const response = await catModel.find({breedID: id})
+    if(response.length === 0) {
+        try{
+            const fetchResponse = await fetch('https://api.thecatapi.com/v1/breeds/'+id)
+            const data = await fetchResponse.json()
+            const search = await catModel.create({
+                breed: data.name,
+                breedID: data.id,
+                searched: 1
+            })
+            res.status(200).json(search)
+        } catch (e) {
+            res.status(400).json({error: e.message})
+        }
+    } else {
+        try{
+            const update = await catModel.updateOne({breedID: id},{searched: response[0].searched+1})
+            res.status(200).json(update)
+        } catch (e) {
+            res.status(400).json({error: e.message})
+        }
+    }
+}
+
+// get the top searched breeds
+const getSearches = async (req,res) => {
+    const response = await catModel.find().sort({searched: 'desc'})
+    res.json(response)
+}
+
+
 module.exports = {
     getAllBreeds,
     getBreed,
     getImages,
-    getImage
+    getImage,
+    addSearch,
+    getSearches
 }

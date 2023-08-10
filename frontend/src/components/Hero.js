@@ -7,32 +7,19 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 
-const Hero = () => {
+const Hero = ({ allBreeds }) => {
     const [searchText, setSearchText] = new useState('')
     const [searchResultsVisible, setSearchResultsVisible] = new useState(false)
     const [searchResults, setSearchResults] = new useState([])
-    const [allBreeds, setAllBreeds] = new useState({})
-
-    const fetchData = async () => {
-        try {
-            const response = await axios.get('http://localhost:4000/breed/')
-            setAllBreeds(response.data)
-        } catch (e){
-            console.log(e.message)
-        }
-    }
+    
 
     useEffect(() => {
-        fetchData()
-    }, []);
-
-    useEffect(() => {
-        console.log(allBreeds)
+        console.log('allBreeds',allBreeds)
     }, [allBreeds])
 
-    useEffect(() => {
-        console.log(searchResults)
-    }, [searchResults])
+    // useEffect(() => {
+    //     console.log(searchResults)
+    // }, [searchResults])
 
     const searchAllBreeds = (value) => {
         setSearchResults([])

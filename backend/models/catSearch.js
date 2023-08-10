@@ -6,6 +6,6 @@ const searchModel = new Schema({
     breed: String,
     breedID: String,
     searched: Number
-})
+}, {timestamps: true})
 
-module.exports = mongoose.Model('search', searchModel)
+module.exports = mongoose.model('search', searchModel)
