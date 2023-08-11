@@ -56,6 +56,20 @@ const MostSearched = ({ allBreeds }) => {
     }, [topSearches,topSamples,imageURLs])
 
 
+    const setData = async () => {
+        const data = await Promise.all( imageURLs.map((imageURL,index) => {
+            return(
+                <Col>
+                    <div className="top-search">
+                        <img src={imageURL} alt="cat" />
+                        <h2>{topSamples[index].name}</h2>
+                    </div>
+                </Col>
+            )
+        }))
+        return data
+    }
+
 
     return(
         <div className="most-searched" >
@@ -71,17 +85,38 @@ const MostSearched = ({ allBreeds }) => {
                     </Col>
                 </Row>
                 <Row>
-                    {/* {imageURLs.length > 0 && 
-                        imageURLs.map((imageURL,index) => {
-                            return(
-                                <Col>
-                                    <div className="top-search">
-                                        <img src={imageURL} alt="cat" />
-                                        <h2>{topSamples[index]}</h2>
-                                    </div>
-                                </Col>
-                            )
-                    })} */}
+                    <Col>
+                        {typeof(imageURLs[0]) === 'string' && 
+                            <div className="top-search">
+                                <img src={imageURLs[0]} alt="cat" />
+                                <h3>{topSamples[0][0].name}</h3>
+                            </div>
+                        }
+                    </Col>
+                    <Col>
+                        {typeof(imageURLs[1]) === 'string' && 
+                            <div className="top-search">
+                                <img src={imageURLs[1]} alt="cat" />
+                                <h3>{topSamples[1][0].name}</h3>
+                            </div>
+                        }
+                    </Col>
+                    <Col>
+                        {typeof(imageURLs[2]) === 'string' && 
+                            <div className="top-search">
+                                <img src={imageURLs[2]} alt="cat" />
+                                <h3>{topSamples[2][0].name}</h3>
+                            </div>
+                        }
+                    </Col>
+                    <Col>
+                        {typeof(imageURLs[3]) === 'string' && 
+                            <div className="top-search">
+                                <img src={imageURLs[3]} alt="cat" />
+                                <h3>{topSamples[3][0].name}</h3>
+                            </div>
+                        }
+                    </Col>
                 </Row>
             </Container>
         </div>

@@ -85,7 +85,7 @@
 .most-searched{
     color: $primaryTextColor;
     background-color: $mostSearchedbg;
-    height: $heroHeight;
+    height: $heroHeight*1.2;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     .container{
@@ -117,6 +117,17 @@
         display: flex;
         justify-content: flex-end;
         align-items: flex-end;
+    }
+
+    .top-search{
+        margin-top: 5vh;
+        font-size: 18px;
+        img{
+            width: 200px;
+            height: 200px;
+            margin-bottom: 5vh;
+            border-radius: 25px;
+        }
     }
 }
 

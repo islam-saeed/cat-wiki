@@ -106,7 +106,7 @@
 .most-searched {
   color: #291507;
   background-color: #e3e1dc;
-  height: 500px;
+  height: 600px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
@@ -152,6 +152,18 @@
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+}
+
+.most-searched .top-search {
+  margin-top: 5vh;
+  font-size: 18px;
+}
+
+.most-searched .top-search img {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 5vh;
+  border-radius: 25px;
 }
 
 .benefits {
