@@ -10,7 +10,7 @@ const Benefits = () => {
         <div className="benefits">
             <Container>
                 <Row>
-                    <Col md={5} className="text-container">
+                    <Col lg={4} xs={12} className="text-container">
                         <div className="border"></div>
                         <h1>Why should you have a cat?</h1>
                         <p>Having a cat around you can trigger the release of calming chemicals in your body which lower your stress and anxiety levels</p>

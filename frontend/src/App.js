@@ -5,6 +5,7 @@ import Cat from "./pages/Cat";
 import { Container } from 'react-bootstrap'
 import "bootstrap/dist/css/bootstrap.min.css"
 import { Route, Routes } from "react-router-dom";
+import TopSearches from "./pages/TopSearches";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       <Container>
         <img src={logo} alt="logo" style={{marginTop: "2vh"}} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<TopSearches />} />
           <Route path="/cat/:id" element={<Cat />} />
         </Routes>
         <Footer />

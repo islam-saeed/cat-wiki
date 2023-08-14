@@ -1,5 +1,4 @@
 import logo from '../images/CatwikiLogo.svg'
-import bgImg from '../images/HeroImagelg.png'
 import { Col, Container, Row, Stack } from 'react-bootstrap'
 import { BsSearch } from "react-icons/bs"
 import { useEffect, useState } from 'react'
@@ -42,8 +41,11 @@ const Hero = ({ allBreeds }) => {
             setSearchResultsVisible(false)
         },200)
     }
+    const handleClick = (breedID) => {
+        axios.post('http://localhost:4000/breed/search/'+breedID);
+    }
     return(
-        <div className="hero" style={{backgroundImage: `url(${bgImg})`}}>
+        <div className="hero">
             <Container>
                 <Row>
                     <Col className='hero-data'>
@@ -51,7 +53,7 @@ const Hero = ({ allBreeds }) => {
                         <p>Get to know your cat breed</p>
                         <div className='search'>
                             <input type="text" 
-                                placeholder="Enter your breed" 
+                                placeholder="Search" 
                                 onChange={handleChange} 
                                 onFocus={handleFocus}
                                 onBlur={handleBlur} 
@@ -65,7 +67,7 @@ const Hero = ({ allBreeds }) => {
                             <div className='search-results'>
                                 <Stack gap={3}>
                                     {searchResults.map(searchResult => {
-                                        return <Link className='result' to={`/cat/${searchResult.id}`}>{searchResult.name}</Link>
+                                        return <Link className='result' to={`/cat/${searchResult.id}`} onClick={() => handleClick(searchResult.id)}>{searchResult.name}</Link>
                                     })}
                                 </Stack>
                             </div>

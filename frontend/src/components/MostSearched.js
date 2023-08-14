@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap"
 import { BsArrowRight } from "react-icons/bs"
+import { Link } from "react-router-dom";
 
 
 const MostSearched = ({ allBreeds }) => {
@@ -85,36 +86,44 @@ const MostSearched = ({ allBreeds }) => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col>
+                    <Col xs={6} lg={3}>
                         {typeof(imageURLs[0]) === 'string' && 
-                            <div className="top-search">
-                                <img src={imageURLs[0]} alt="cat" />
-                                <h3>{topSamples[0][0].name}</h3>
-                            </div>
+                            <Link to={`/cat/${topSamples[0][0].id}`}>
+                                <div className="top-search">
+                                    <img src={imageURLs[0]} alt="cat" />
+                                    <h3>{topSamples[0][0].name}</h3>
+                                </div>
+                            </Link>
                         }
                     </Col>
-                    <Col>
+                    <Col xs={6} lg={3}>
                         {typeof(imageURLs[1]) === 'string' && 
-                            <div className="top-search">
-                                <img src={imageURLs[1]} alt="cat" />
-                                <h3>{topSamples[1][0].name}</h3>
-                            </div>
+                            <Link to={`/cat/${topSamples[1][0].id}`}>
+                                <div className="top-search">
+                                    <img src={imageURLs[1]} alt="cat" />
+                                    <h3>{topSamples[1][0].name}</h3>
+                                </div>
+                            </Link>
                         }
                     </Col>
                     <Col>
                         {typeof(imageURLs[2]) === 'string' && 
-                            <div className="top-search">
-                                <img src={imageURLs[2]} alt="cat" />
-                                <h3>{topSamples[2][0].name}</h3>
-                            </div>
+                            <Link to={`/cat/${topSamples[2][0].id}`}>
+                                <div className="top-search">
+                                    <img src={imageURLs[2]} alt="cat" />
+                                    <h3>{topSamples[2][0].name}</h3>
+                                </div>
+                            </Link>
                         }
                     </Col>
                     <Col>
                         {typeof(imageURLs[3]) === 'string' && 
-                            <div className="top-search">
-                                <img src={imageURLs[3]} alt="cat" />
-                                <h3>{topSamples[3][0].name}</h3>
-                            </div>
+                            <Link to={`/cat/${topSamples[3][0].id}`}>
+                                <div className="top-search">
+                                    <img src={imageURLs[3]} alt="cat" />
+                                    <h3>{topSamples[3][0].name}</h3>
+                                </div>
+                            </Link>
                         }
                     </Col>
                 </Row>
