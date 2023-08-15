@@ -57,21 +57,6 @@ const MostSearched = ({ allBreeds }) => {
     }, [topSearches,topSamples,imageURLs])
 
 
-    const setData = async () => {
-        const data = await Promise.all( imageURLs.map((imageURL,index) => {
-            return(
-                <Col>
-                    <div className="top-search">
-                        <img src={imageURL} alt="cat" />
-                        <h2>{topSamples[index].name}</h2>
-                    </div>
-                </Col>
-            )
-        }))
-        return data
-    }
-
-
     return(
         <div className="most-searched" >
             <Container>
@@ -82,7 +67,7 @@ const MostSearched = ({ allBreeds }) => {
                         <h1>66+ Breeds For you to discover</h1>
                     </Col>
                     <Col lg className="see-more">
-                        <h3>SEE MORE <BsArrowRight /></h3>
+                        <Link to="/topSearch/"><h3>SEE MORE <BsArrowRight /></h3></Link>
                     </Col>
                 </Row>
                 <Row>

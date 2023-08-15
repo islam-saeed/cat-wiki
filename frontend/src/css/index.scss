@@ -13,6 +13,11 @@
     font-family: 'Montserrat','sans-serif';
 }
 
+.App{
+    min-height: 100vh;
+    position: relative;
+}
+
 .hero{
     background-image: url('../images/HeroImagelg.png');
     background-size: 100% 100%;
@@ -231,6 +236,10 @@
 
 
 footer{
+    @include flexCenter();
+    position: absolute;
+    bottom: 0;
+    width: 80%;
     margin-top: 10vh;
     .container{
         display: flex;
@@ -295,12 +304,25 @@ footer{
 }
 
 .top-searches{
+    margin-top: 50px;
+    &>h1{
+        font-weight: map-get($map: $font-weights, $key: bold);
+        font-size: 36px;
+        margin-bottom: 50px;
+    }
     .top-search-list-item{
         @include flexCenter();
         width: 100%;
-        img{
+        .row{
             width: 100%;
-            
+        }
+        .col-4{
+            @include flexCenter();
+        }
+        img{
+            width: 170px;
+            height: 170px;
+            border-radius: 24px;
         }
     }
 }

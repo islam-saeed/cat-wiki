@@ -4,17 +4,18 @@ import Home from './pages/Home';
 import Cat from "./pages/Cat";
 import { Container } from 'react-bootstrap'
 import "bootstrap/dist/css/bootstrap.min.css"
-import { Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import TopSearches from "./pages/TopSearches";
 
 function App() {
   return (
     <div className="App">
       <Container>
-        <img src={logo} alt="logo" style={{marginTop: "2vh"}} />
+        <Link to="/"><img src={logo} alt="logo" style={{marginTop: "2vh"}} /></Link>
         <Routes>
-          <Route path="/" element={<TopSearches />} />
+          <Route path="/" element={<Home />} />
           <Route path="/cat/:id" element={<Cat />} />
+          <Route path="/topSearch/" element={<TopSearches />} />
         </Routes>
         <Footer />
       </Container>

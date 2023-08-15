@@ -5,6 +5,7 @@ import { Col, Row, Stack } from "react-bootstrap"
 const TopSearches = () => {
     const [mostSearched, setMostSearched] = new useState({})
     const [imageURLs, setImageURLs] = new useState({})
+    const [descriptions, setDescriptions] = new useState({})
     const fetchData = async () => {
         try{
             const response = await axios.get('http://localhost:4000/breed/search/')
@@ -26,6 +27,17 @@ const TopSearches = () => {
         setImageURLs(collectedImages)
     }
 
+    const fetchDescriptions = async () => {
+        const collectedDescriptions = await Promise.all(mostSearched.map( async (search) => {
+            try{
+                const response = await axios.get('http://localhost:4000/breed/'+ search.breedID)
+                const data = await response.data.description
+                return data
+            } catch (e){ console.log(e.message)}
+        }))
+        setDescriptions(collectedDescriptions)
+    }
+
     useEffect(() => {
         fetchData()
     }, [])
@@ -33,14 +45,20 @@ const TopSearches = () => {
     useEffect(() => {
         if(Array.isArray(mostSearched)){fetchImages()}
     }, [mostSearched])
+    
+    useEffect(() => {
+        if(Array.isArray(mostSearched)){fetchDescriptions()}
+    }, [mostSearched])
 
     useEffect(() => {
         console.log(mostSearched)
         console.log(imageURLs)
-    }, [mostSearched, imageURLs])
+        console.log(descriptions)
+    }, [mostSearched, imageURLs, descriptions])
     return (
         <div className="top-searches">
-            <Stack gap={4}>
+            <h1>Top 10 most searched breeds</h1>
+            <Stack gap={5}>
                 {Array.isArray(mostSearched) && Array.isArray(imageURLs) &&
                     mostSearched.map((result,index) => {
                         if(typeof(imageURLs[index])==='string'){
@@ -52,6 +70,7 @@ const TopSearches = () => {
                                         </Col>
                                         <Col xs={8}>
                                             <h1>{index+1}. {result.breed}</h1>
+                                            <p>{descriptions[index]}</p>
                                         </Col>
                                     </Row>
                                 </div>
