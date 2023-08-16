@@ -3,9 +3,17 @@ import { useEffect, useState } from "react"
 import { Col, Row, Stack } from "react-bootstrap"
 
 const TopSearches = () => {
+
+    // to store the data of the most searched breeds
     const [mostSearched, setMostSearched] = new useState({})
+
+    // to store the images of the most searched breeds
     const [imageURLs, setImageURLs] = new useState({})
+
+    // to store the descriptions of the most searched breeds
     const [descriptions, setDescriptions] = new useState({})
+
+    // to fetch the data of the most searched breeds
     const fetchData = async () => {
         try{
             const response = await axios.get('http://localhost:4000/breed/search/')
@@ -16,6 +24,7 @@ const TopSearches = () => {
         
     }
 
+    // to fetch the images of the most searched breeds after the data has been loaded
     const fetchImages = async () => {
         const collectedImages = await Promise.all(mostSearched.map( async (search) => {
             try{
@@ -27,6 +36,7 @@ const TopSearches = () => {
         setImageURLs(collectedImages)
     }
 
+    // to fetch the descriptions of the most searched breeds after the data has been loaded 
     const fetchDescriptions = async () => {
         const collectedDescriptions = await Promise.all(mostSearched.map( async (search) => {
             try{
@@ -38,23 +48,21 @@ const TopSearches = () => {
         setDescriptions(collectedDescriptions)
     }
 
+    // to fetch the data on load
     useEffect(() => {
         fetchData()
     }, [])
 
+    // to fetch the images after the data has been loaded
     useEffect(() => {
         if(Array.isArray(mostSearched)){fetchImages()}
     }, [mostSearched])
     
+    // to fetch the descriptions after the data has been loaded 
     useEffect(() => {
         if(Array.isArray(mostSearched)){fetchDescriptions()}
     }, [mostSearched])
-
-    useEffect(() => {
-        console.log(mostSearched)
-        console.log(imageURLs)
-        console.log(descriptions)
-    }, [mostSearched, imageURLs, descriptions])
+    
     return (
         <div className="top-searches">
             <h1>Top 10 most searched breeds</h1>

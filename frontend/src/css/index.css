@@ -1,16 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Karla:wght@700&family=Montserrat:wght@500;600;700&display=swap");
-* {
-  margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-family: 'Montserrat','sans-serif';
-}
-
-.App {
-  min-height: 100vh;
-  position: relative;
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Karla:wght@700&family=Montserrat:wght@500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Karla:wght@700&family=Montserrat:wght@500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Karla:wght@700&family=Montserrat:wght@500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Karla:wght@700&family=Montserrat:wght@500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Karla:wght@700&family=Montserrat:wght@500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Karla:wght@700&family=Montserrat:wght@500;600;700&display=swap");
 .hero {
   background-image: url("../images/HeroImagelg.png");
   background-size: 100% 100%;
@@ -257,6 +251,7 @@
 
 .benefits {
   margin-top: 20vh;
+  margin-bottom: 20vh;
   color: #291507;
 }
 
@@ -324,7 +319,6 @@ footer {
       -ms-flex-align: center;
           align-items: center;
   position: absolute;
-  bottom: 0;
   width: 80%;
   margin-top: 10vh;
 }
@@ -439,5 +433,17 @@ footer .container img {
   width: 170px;
   height: 170px;
   border-radius: 24px;
+}
+
+* {
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Montserrat','sans-serif';
+}
+
+.App {
+  min-height: 100vh;
+  position: relative;
 }
 /*# sourceMappingURL=index.css.map */

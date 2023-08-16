@@ -7,19 +7,27 @@ import { Link } from "react-router-dom";
 
 const MostSearched = ({ allBreeds }) => {
 
+    // to store the most searched breeds fetched from api
     const [topSearches, setTopSearches] = new useState([]);
+
+    // to store the search results after removing the undefined values
     const [topSamples, setTopSamples] = new useState([]);
+
+    // to store the urls of the breed images
     const [imageURLs, setImageURLs] = new useState([]);
 
+    // to get the search counters of the breeds
     const fetchData = async () => {
         const response = await axios.get('http://localhost:4000/breed/search/')
         setTopSearches(response.data)
     }
 
+    // to fetch data on load
     useEffect(() => {
         fetchData()
     }, []);
 
+    // to map the results for the undefined values
     useEffect(() => {
         if(topSearches.length > 0 && allBreeds.length > 0){
             setTopSamples(topSearches.map(search =>
@@ -32,7 +40,7 @@ const MostSearched = ({ allBreeds }) => {
         }
     }, [allBreeds,topSearches]);
 
-
+    // to get the images of the breeds
     const fetchImages = async () => {
         const collectedImages = await Promise.all(topSamples.map( async (sample) => {
             try{
@@ -44,18 +52,12 @@ const MostSearched = ({ allBreeds }) => {
         setImageURLs(collectedImages)
     }
 
+    // to fetch the images when the topSamples state is ready
     useEffect(() => {
         if(topSamples.length > 0){
             fetchImages()
         }
     },[topSamples])
-    
-    useEffect(() => {
-        console.log('topSearches: ',topSearches)
-        console.log('topSamples: ',topSamples)
-        console.log('imageURLs: ',imageURLs)
-    }, [topSearches,topSamples,imageURLs])
-
 
     return(
         <div className="most-searched" >

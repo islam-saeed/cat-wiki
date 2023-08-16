@@ -1,5 +1,5 @@
 import logo from "../images/CatwikiLogo.svg"
-import { Col, Container, Row } from "react-bootstrap"
+import { Container } from "react-bootstrap"
 
 const Footer = () => {
     return(

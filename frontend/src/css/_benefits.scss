@@ -1,0 +1,58 @@
+@import "./_variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Karla:wght@700&family=Montserrat:wght@500;600;700&display=swap');
+
+@mixin flexCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.benefits{
+    margin-top: 20vh;
+    margin-bottom: 20vh;
+    color: $primaryTextColor;
+
+    .border{
+        width: 60px;
+        height: 5px;
+        border-radius: 8px;
+        background-color: $primaryTextColor;
+        margin-bottom: 5vh;
+    }
+
+    .text-container{
+        margin-top: 15vh;
+
+        *{
+            margin-bottom: 8vh;
+        }
+
+        h3{
+            font-weight: map-get($map: $font-weights, $key: bold);
+            font-size: 18px;
+            
+            svg{
+                margin: 0;
+            }
+        }
+    }
+    
+    h1{
+        font-weight: map-get($map: $font-weights, $key: bold);
+        font-size: 48px;
+    }
+
+    .images-container{
+        flex-wrap: nowrap;
+        .col{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        img{
+            max-width: 90%;
+            margin: 5vh 0 1vh 0;
+        }
+    }
+}

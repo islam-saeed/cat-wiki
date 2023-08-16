@@ -1,0 +1,47 @@
+@import "./_variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Karla:wght@700&family=Montserrat:wght@500;600;700&display=swap');
+
+@mixin flexCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.details{
+    color: $primaryTextColor;
+    margin-top: 5vh;
+
+    .full{
+        width: 60px;
+        height: 5px;
+        border-radius: 8px;
+        background-color: $primaryTextColor;
+        margin: auto 0.5vw;
+    }
+
+    .empty{
+        width: 60px;
+        height: 5px;
+        border-radius: 8px;
+        background-color: rgba(224, 224, 224, 1);
+        margin: auto 0.5vw;
+    }
+
+    img{
+        width: 370px;
+        height: 370px;
+        border-radius: 24px;
+    }
+    .bold{
+        font-weight: map-get($map: $font-weights, $key: bold);
+    }
+
+    .cat-pics{
+        margin-top: 5vh;
+        img{
+            width: 270px;
+            height: 270px;
+            margin-bottom: 5vh;
+        }
+    }
+}

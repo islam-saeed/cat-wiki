@@ -1,0 +1,83 @@
+@import "./_variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Karla:wght@700&family=Montserrat:wght@500;600;700&display=swap');
+
+@mixin flexCenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.most-searched{
+    color: $primaryTextColor;
+    background-color: $mostSearchedbg;
+    height: $heroHeight*1.2;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    @media screen and (max-width: 990px) {
+        height: $heroHeight*1.7; 
+    }
+    @media screen and (max-width: 475px) {
+        height: $heroHeight*1.5; 
+    }
+    
+    .container{
+        padding: 5vh 5vw;
+    }
+    .border{
+        width: 60px;
+        height: 5px;
+        border-radius: 8px;
+        background-color: $primaryTextColor;
+        margin: 1vh 0 5vh 0;
+    }
+    h4{
+        font-weight: map-get($map: $font-weights, $key: regular);
+        font-size: 18px;
+    }
+    .row{
+        vertical-align: center;
+    }
+    h1{
+        font-weight: map-get($map: $font-weights, $key: bold);
+        font-size: 48px;
+        @media only screen and (max-width: 990px) {
+            font-size: 25px;
+        }
+        @media only screen and (max-width: 375px) {
+            font-size: 18px;
+        }
+    }
+    h3{
+        font-weight: map-get($map: $font-weights, $key: bold);
+        font-size: 18px;
+    }
+    .see-more{
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+
+    a{
+        text-decoration: none;
+        color: $primaryTextColor;
+    }
+
+    .top-search{
+        margin-top: 5vh;
+        font-size: 18px;
+        img{
+            width: 200px;
+            height: 200px;
+            margin-bottom: 5vh;
+            border-radius: 25px;
+            @media only screen and (max-width: 475px) {
+                width: 150px;
+                height: 150px;
+            }
+            @media only screen and (max-width: 380px) {
+                width: 130px;
+                height: 130px;
+            }
+        }
+    }
+}

@@ -6,11 +6,18 @@ import Percentages from './Percentages'
 
 
 const BreedDetails = () => {
+
+    // get the id from the url
     const params = useParams()
+
+    // to store the json that was fetched from the api
     const [ JSON, setJSON ] = new useState({})
+
+    // to store the images of the breed that was fetched from the api
     const [ catImages, setCatImages ] = new useState({})
 
 
+    // to fetch the data from the api
     const getData = async () => {
         try{
             const response = await axios.get(`http://localhost:4000/breed/${params.id}`)
@@ -22,18 +29,13 @@ const BreedDetails = () => {
         }
     }
 
+    // to get the data on load
     useEffect(() => {
         getData()
     }, []);
 
-    useEffect(() => {
-        console.log(JSON)
-        console.log(catImages)
-    }, [JSON, catImages]);
 
-
-    
-
+    // the Percentage component was used to add the percentage of each characteristic
     return(
         <div className='details'>
             <Container>
